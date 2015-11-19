@@ -9,7 +9,10 @@ require(tidyr)
 
 # Import Data file.
 data = read.csv("http://cadaveresinmobiliarios.org/db/cadaveres.inmobiliarios.csv",
-                 na.strings = c("", "-", "--", "NA"))
+                 na.strings = c("", "-", "--", "---", "----", "------", "NA"))
+
+# data = read.csv("data/cadaveres.inmobiliarios.csv",
+#                 na.strings = c("", "-", "--", "---", "----", "------", "NA"))
 
 # Data manipulation -------------------------------------------------------
 
