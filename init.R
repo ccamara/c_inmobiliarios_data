@@ -8,14 +8,8 @@ require(tidyr)
 # Data import -------------------------------------------------------------
 
 # Import Data file.
-data1 = read.csv("data/Murcia_c_inmobiliarios.csv",
+data = read.csv("http://cadaveresinmobiliarios.org/db/cadaveres.inmobiliarios.csv",
                  na.strings = c("", "-", "--", "NA"))
-data2 = read.csv("data/Andalucia_c_inmobiliarios.csv",
-                 na.strings = c("", "-", "--", "NA"))
-
-# Combining data sets -----------------------------------------------------
-
-data = rbind(data1, data2)
 
 # Data manipulation -------------------------------------------------------
 
