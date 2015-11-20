@@ -7,7 +7,16 @@ require(tidyr)
 
 # Data import -------------------------------------------------------------
 
-# Import Data file.
+# locate the files
+files <- list.files(path = "data/raw", pattern = "*.csv", full.names = TRUE)
+
+# read the files into a list of data.frames
+data.list <- lapply(files, read.csv)
+
+# concatenate into one big data.frame
+data.cat <- do.call(rbind, data.list)
+
+
 data1 = read.csv("data/Murcia_c_inmobiliarios.csv",
                  na.strings = c("", "-", "--", "NA"))
 data2 = read.csv("data/Andalucia_c_inmobiliarios.csv",
