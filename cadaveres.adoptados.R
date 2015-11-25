@@ -34,9 +34,9 @@ data = rbind(data1, data2, data3, data4, data5, data6, data7,
 data = data %>%
   filter(complete.cases(nombre_promocional)) %>%
   filter(complete.cases(latitud_longitud)) %>%
-  separate(latitud_longitud,c("latitud","longitud"), ",")
-
-# @todo: turn - characters into NA characters.
+  separate(latitud_longitud,c("latitud","longitud"), ",") %>%
+  # Turn - characters into NA characters.
+  replace("-",NA)
 
 # Export file again -------------------------------------------------------
 
