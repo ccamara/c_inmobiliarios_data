@@ -15,11 +15,12 @@ require(tidyr)
 ss = gs_key("1PvvaBcSyQP_0SYo2epQcPAU47rA--E_6KSCdMKSQKcg")
 
 ss$n_ws # Number of worksheets.
+ss_ws = 1:ss$n_ws
 
 # Load all worksheets and store them in data frames.
-for (i in seq_along(ss$n_ws)) {
+for (i in seq_along(ss_ws)) {
   data_temp = paste("data", i, sep = "")
-  assign(data_temp, gs_read(ss, ws = ss_ws[i], range = cell_cols(1:86)))
+  assign(data_temp, gs_read(ss, ws = ss_ws[i], range = cell_cols(1:76)))
 }
 
 # Combine all worksheets into a single data frame.
@@ -36,8 +37,8 @@ data = data %>%
   filter(complete.cases(latitud_longitud)) %>%
   separate(latitud_longitud,c("latitud","longitud"), ",") %>%
   # Turn - characters into NA characters.
-  replace("-",NA)
+  replace("-", NA)
 
 # Export file again -------------------------------------------------------
 
-write.csv(data, file = "data/cadaveres.adoptados.csv", na = c("", "-", NA))
+write.csv(data, file = "data/cadaveres.adoptados.csv", na = c("", "-","---","------", NA))
