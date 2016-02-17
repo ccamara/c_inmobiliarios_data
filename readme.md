@@ -8,3 +8,4 @@ Este repositorio utiliza R y necesita tener instalados previamente los paquetes 
 
 * Tidyr
 * Dplyr
+* googlesheets
