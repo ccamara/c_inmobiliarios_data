@@ -39,6 +39,11 @@ data = data %>%
   # Turn - characters into NA characters.
   replace("-", NA)
 
+# Adding new information for future classification on the website.
+
+data$corpse_category = "Adoptados"
+
+
 # Export file again -------------------------------------------------------
 
 write.csv(data, file = "data/cadaveres.adoptados.csv", na = c("", "-","---","------", NA))
