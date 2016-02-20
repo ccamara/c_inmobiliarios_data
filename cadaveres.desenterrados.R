@@ -22,6 +22,10 @@ data_nacion_rotonda = ss %>%
   filter(complete.cases(latitud_longitud)) %>%
   separate(latitud_longitud,c("latitud","longitud"), ",")
 
+# Adding new information for future classification on the website.
+
+data_nacion_rotonda$corpse_category = "Desenterrados"
+
 write.csv(data_nacion_rotonda,
           file = "data/cadaveres.desenterrados.nacion-rotonda.csv",
           na = "")
