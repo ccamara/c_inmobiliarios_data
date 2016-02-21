@@ -24,7 +24,7 @@ data_nacion_rotonda = ss %>%
 
 # Adding new information for future classification on the website.
 
-data_nacion_rotonda$corpse_category = "Desenterrados"
+data_nacion_rotonda$corpse_category = "Desenterrado"
 
 write.csv(data_nacion_rotonda,
           file = "data/cadaveres.desenterrados.nacion-rotonda.csv",

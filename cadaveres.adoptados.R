@@ -41,7 +41,7 @@ data = data %>%
 
 # Adding new information for future classification on the website.
 
-data$corpse_category = "Adoptados"
+data$corpse_category = "Adoptado"
 
 
 # Export file again -------------------------------------------------------
