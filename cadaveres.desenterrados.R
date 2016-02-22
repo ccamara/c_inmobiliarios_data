@@ -40,11 +40,7 @@ data_nacion_rotonda = read.csv(
   'data/input/BBDD cadáveres inmobiliarios Nación Rotonda.csv')
 
 # Cleanup and manipulations
-data_nacion_rotonda$Location = gsub('<Point><coordinates>|</coordinates></Point>',
-                                    '',
-                                    data_nacion_rotonda$Location)
-
-data_nacion_rotonda$Location = gsub(',0.0',
+data_nacion_rotonda$Location = gsub('<Point><coordinates>|,0.0</coordinates></Point>',
                                     '',
                                     data_nacion_rotonda$Location)
 
