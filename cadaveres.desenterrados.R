@@ -36,6 +36,10 @@ write.csv(data_ruinas_modernas,
 
 # Nación rotonda ----------------------------------------------------------
 
+# Get latest data from
+# https://www.google.com/fusiontables/data?docid=1NIKFRDKePmqadbQRm15pZptzXKUynATLWD4FoB1K#rows:id=1
+# and place it into folder data/input
+
 data_nacion_rotonda = read.csv(
   'data/input/BBDD cadáveres inmobiliarios Nación Rotonda.csv')
 
