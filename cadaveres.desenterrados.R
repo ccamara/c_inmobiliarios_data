@@ -28,6 +28,7 @@ data_ruinas_modernas = ss %>%
 # Adding new information for future classification on the website.
 
 data_ruinas_modernas$corpse_category = "Desenterrado"
+data_ruinas_modernas$creator = "Ruinas Modernas"
 
 write.csv(data_ruinas_modernas,
           file = "data/cadaveres.desenterrados.ruinas_modernas.csv",
@@ -57,6 +58,7 @@ data_nacion_rotonda = data_nacion_rotonda %>%
 # Adding new information for future classification on the website.
 
 data_nacion_rotonda$corpse_category = "Desenterrado"
+data_nacion_rotonda$creator = "Nación Rotonda"
 
 write.csv(data_nacion_rotonda,
           file = "data/cadaveres.desenterrados.nacion_rotonda.csv",
