@@ -52,15 +52,15 @@ data_nacion_rotonda$Location = gsub('<Point><coordinates>|,0.0</coordinates></Po
 data_nacion_rotonda = data_nacion_rotonda %>%
   rename(nombre_promocional = Name) %>%
   rename(enlace_web = Haz.Click.Aquí) %>%
-  filter(complete.cases(nombre_promocional)) %>%
+  filter(nombre_promocional != "") %>%
   separate(Location,c('longitud','latitud'), ",")
 
 # Adding new information for future classification on the website.
 
 data_nacion_rotonda$corpse_category = "Desenterrado"
 data_nacion_rotonda$creator = "Nación Rotonda"
+data_nacion_rotonda$fuente = "Nación Rotonda"
 
 write.csv(data_nacion_rotonda,
           file = "data/cadaveres.desenterrados.nacion_rotonda.csv",
           na = "")
-
