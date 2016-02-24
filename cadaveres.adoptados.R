@@ -43,6 +43,13 @@ data = data %>%
 
 data$corpse_category = "Adoptado"
 
+# Export file again -------------------------------------------------------
+
+write.csv(data, file = "data/cadaveres.adoptados.csv", na = c("", "-","---","------", NA))
+
+
+# Some statistics ---------------------------------------------------------
+
 # Count padres_adoptivos' unique values
 
 padres_adoptivos = data %>%
@@ -56,6 +63,14 @@ padres_adoptivos = data %>%
   summarise(Total = n()) %>%
   arrange(desc(Total))
 
-# Export file again -------------------------------------------------------
+# Count superficie_terreno
+superficie_terreno_n = data %>%
+  select(superficie_terreno) %>%
+  filter(complete.cases(superficie_terreno)) %>%
+  summarise(Total = n())
 
-write.csv(data, file = "data/cadaveres.adoptados.csv", na = c("", "-","---","------", NA))
+# Count superficie_construida
+superficie_construida_n = data %>%
+  select(superficie_construida) %>%
+  filter(complete.cases(superficie_construida)) %>%
+  summarise(Total = n())
