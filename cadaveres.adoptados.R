@@ -43,6 +43,18 @@ data = data %>%
 
 data$corpse_category = "Adoptado"
 
+# Count padres_adoptivos' unique values
+
+padres_adoptivos = data %>%
+  select(padre_adoptivo) %>%
+  filter(complete.cases(padre_adoptivo)) %>%
+  gather(variable, value) %>%
+  # Split multiple values in separate observations.
+  mutate(value = strsplit(as.character(value), ", ")) %>%
+  unnest(value) %>%
+  group_by(value) %>%
+  summarise(Total = n()) %>%
+  arrange(desc(Total))
 
 # Export file again -------------------------------------------------------
 
