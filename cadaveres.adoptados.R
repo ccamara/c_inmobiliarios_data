@@ -42,6 +42,7 @@ data = data %>%
 # Adding new information for future classification on the website.
 
 data$corpse_category = "Adoptado"
+data$superficie_terreno_units = "area_square_meters"
 
 # Export file again -------------------------------------------------------
 
