@@ -24,15 +24,24 @@ for (i in seq_along(ss_ws)) {
 }
 
 # Combine all worksheets into a single data frame.
-data = rbind(data1, data2, data3, data4, data5, data6, data7,
-             data8, data9, data10, data11, data12, data13, data14, data15,
-             data16, data17, data18, data19)
+data_raw = rbind(data1, data2, data3, data4, data5, data6, data7,
+                 data8, data9, data10, data11, data12, data13, data14, data15,
+                 data16, data17, data18, data19)
+
+# Store the file for offline edits.
+write.csv(data_raw, file = "data/input/cadaveres.adoptados_raw.csv",
+          na = c("", "-","---","------", NA))
+
+# Cleanup: deleting unusued temporary dataframes.
+remove(data1, data2, data3, data4, data5, data6, data7,
+       data8, data9, data10, data11, data12, data13, data14, data15,
+       data16, data17, data18, data19)
 
 # Data manipulation -------------------------------------------------------
 
 # Filtering out unusable rows and split latitude and latitude column into
 # separate variables.
-data = data %>%
+data = data_raw %>%
   filter(complete.cases(nombre_promocional)) %>%
   filter(complete.cases(latitud_longitud)) %>%
   separate(latitud_longitud,c("latitud","longitud"), ",") %>%
@@ -42,7 +51,9 @@ data = data %>%
 # Adding new information for future classification on the website.
 
 data$corpse_category = "Adoptado"
-data$superficie_terreno_units = "area_square_meters"
+data$superficie_terreno = as.numeric(data$superficie_terreno) / 10000
+data$superficie_terreno_units = "ha"
+data$superficie_construida_units = "area_square_meters"
 
 # Export file again -------------------------------------------------------
 
