@@ -52,7 +52,7 @@ data = data_raw %>%
 
 data$corpse_category = "Adoptado"
 data$superficie_terreno = as.numeric(data$superficie_terreno) / 10000
-data$superficie_terreno_units = "ha"
+data$superficie_terreno_units = "area_hectares"
 data$superficie_construida_units = "area_square_meters"
 
 # Export file again -------------------------------------------------------
